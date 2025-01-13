@@ -2,7 +2,8 @@
   "solution": {
     "path": "Unity.Mathematics.Text.Json.sln",
     "projects": [
-      "Unity.Mathematics.Text.Json\\Unity.Mathematics.Text.Json.csproj"
+      "Unity.Mathematics.Text.Json\\Unity.Mathematics.Text.Json.csproj",
+      "Tests\\Functionality\\Functionality.csproj"
     ]
   }
 }
