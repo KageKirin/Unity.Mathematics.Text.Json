@@ -6,7 +6,7 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public class QuaternionJsonConverter : JsonConverter<quaternion>
+public class QuaternionJsonArrayConverter : JsonConverter<quaternion>
 {
     public override quaternion Read(
         ref Utf8JsonReader reader,
