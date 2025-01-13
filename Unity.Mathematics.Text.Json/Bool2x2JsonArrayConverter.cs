@@ -6,7 +6,7 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public class Bool2x2JsonConverter : JsonConverter<bool2x2>
+public class Bool2x2JsonArrayConverter : JsonConverter<bool2x2>
 {
     public override bool2x2 Read(
         ref Utf8JsonReader reader,
