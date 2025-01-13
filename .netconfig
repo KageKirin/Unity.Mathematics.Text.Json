@@ -1,0 +1,43 @@
+logFilePath = "nugettier.log"
+
+[logging "LogLevel"]
+Default = "Error"
+Microsoft = "Warning"
+
+[guid]
+algorithm = "xxhash128"
+format = "unity"
+
+[defaults]
+unity = "2022.3"
+target = "https://foo.bar"
+output-directory = "."
+
+[package ""]
+name = "external.{{{Authors}}}.{{{Identity.Id}}}"
+
+[package "unitymathematics.text.json"]
+name = "com.kagekirin.{{{Identity.Id}}}"
+recurse = true
+
+[package "unitymathematics.nodeps"]
+name = "com.unity.mathematics"
+recurse = false
+
+[package "system.text.json"]
+name = "com.microsoft.system.text.json"
+ignore = true
+recurse = false
+
+
+[unity "2023.*"]
+framework = "netstandard2.1"
+
+[unity "2022.*"]
+framework = "netstandard2.1"
+
+[unity "2021.*"]
+framework = "netstandard2.0"
+
+[source "api.nuget.org/v3/index.json"]
+protocol = "https"
