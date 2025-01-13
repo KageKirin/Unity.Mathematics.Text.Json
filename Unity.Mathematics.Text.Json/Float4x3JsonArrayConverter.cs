@@ -6,7 +6,7 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public class Float4x3JsonConverter : JsonConverter<float4x3>
+public class Float4x3JsonArrayConverter : JsonConverter<float4x3>
 {
     public override float4x3 Read(
         ref Utf8JsonReader reader,
