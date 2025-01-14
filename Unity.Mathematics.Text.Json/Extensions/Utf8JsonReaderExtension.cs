@@ -67,4 +67,22 @@ public static class Utf8JsonReaderExtension
         return reader.GetUInt32();
     }
 
+    public static bool GetBoolean(this ref Utf8JsonReader reader, string propertyName)
+    {
+        if (reader.TokenType != JsonTokenType.PropertyName)
+        {
+            throw new JsonException(
+                $"Expected PropertyName token ('{propertyName}'), but got {reader.TokenType}"
+            );
+        }
+
+        var propName = reader.GetString();
+        if (propName != propertyName)
+        {
+            throw new JsonException($"Expected PropertyName token == '{propertyName}'");
+        }
+
+        reader.Read();
+        return reader.GetBoolean();
+    }
 }
