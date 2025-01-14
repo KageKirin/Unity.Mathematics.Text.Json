@@ -28,4 +28,24 @@ public static class Utf8JsonReaderExtension
         reader.Read();
         return reader.GetDouble();
     }
+
+    public static int GetInt32(this ref Utf8JsonReader reader, string propertyName)
+    {
+        if (reader.TokenType != JsonTokenType.PropertyName)
+        {
+            throw new JsonException(
+                $"Expected PropertyName token ('{propertyName}'), but got {reader.TokenType}"
+            );
+        }
+
+        var propName = reader.GetString();
+        if (propName != propertyName)
+        {
+            throw new JsonException($"Expected PropertyName token == '{propertyName}'");
+        }
+
+        reader.Read();
+        return reader.GetInt32();
+    }
+
 }
