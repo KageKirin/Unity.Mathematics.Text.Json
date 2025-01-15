@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Text.Json
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayNotation.Functionality", "Tests\ArrayNotation.Functionality\ArrayNotation.Functionality.csproj", "{452ED11B-95BD-498D-887E-E2247A8FA94B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectNotation.Functionality", "Tests\ObjectNotation.Functionality\ObjectNotation.Functionality.csproj", "{32D79F29-0729-4192-8518-A4084FF763A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +46,14 @@ Global
 		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D79F29-0729-4192-8518-A4084FF763A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D79F29-0729-4192-8518-A4084FF763A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D79F29-0729-4192-8518-A4084FF763A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D79F29-0729-4192-8518-A4084FF763A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{80B7C065-AACA-44E2-80E3-9B43319634C5} = {C55D216B-3A79-4B7B-9246-D20244B9AFF1}
 		{452ED11B-95BD-498D-887E-E2247A8FA94B} = {C55D216B-3A79-4B7B-9246-D20244B9AFF1}
+		{32D79F29-0729-4192-8518-A4084FF763A3} = {C55D216B-3A79-4B7B-9246-D20244B9AFF1}
 	EndGlobalSection
 EndGlobal
