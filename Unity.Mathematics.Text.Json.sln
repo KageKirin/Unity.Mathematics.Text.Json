@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Text.Json
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Text.Json.ObjectNotation", "Unity.Mathematics.Text.Json.ObjectNotation\Unity.Mathematics.Text.Json.ObjectNotation.csproj", "{18111272-3B23-4266-AD7D-8B4B50F5FC2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayNotation.Functionality", "Tests\ArrayNotation.Functionality\ArrayNotation.Functionality.csproj", "{452ED11B-95BD-498D-887E-E2247A8FA94B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,8 +40,13 @@ Global
 		{18111272-3B23-4266-AD7D-8B4B50F5FC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18111272-3B23-4266-AD7D-8B4B50F5FC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18111272-3B23-4266-AD7D-8B4B50F5FC2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452ED11B-95BD-498D-887E-E2247A8FA94B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{80B7C065-AACA-44E2-80E3-9B43319634C5} = {C55D216B-3A79-4B7B-9246-D20244B9AFF1}
+		{452ED11B-95BD-498D-887E-E2247A8FA94B} = {C55D216B-3A79-4B7B-9246-D20244B9AFF1}
 	EndGlobalSection
 EndGlobal
