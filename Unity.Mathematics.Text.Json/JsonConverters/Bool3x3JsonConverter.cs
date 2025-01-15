@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -7,24 +8,15 @@ using Unity.Mathematics;
 namespace Unity.Mathematics.Text.Json;
 
 public abstract class Bool3x3JsonConverter : JsonConverter<bool3x3>
+
 {
-    public delegate bool3x3 ReadFunc(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    );
 
-    public delegate void WriteFunc(
-        Utf8JsonWriter writer,
-        bool3x3 value,
-        JsonSerializerOptions options
-    );
+    public delegate bool3x3 ReadFunc(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options);
 
-    public bool3x3 ReadAsArray(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
+    public delegate void WriteFunc(Utf8JsonWriter writer, bool3x3 value, JsonSerializerOptions options);
+
+    public bool3x3 ReadAsArray(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
     {
         if (reader.TokenType != JsonTokenType.StartArray)
         {
@@ -32,33 +24,34 @@ public abstract class Bool3x3JsonConverter : JsonConverter<bool3x3>
         }
 
         var value = new bool3x3();
-
+        
         reader.Read();
         value.c0.x = reader.GetBoolean();
-
+        
         reader.Read();
         value.c0.y = reader.GetBoolean();
-
+        
         reader.Read();
         value.c0.z = reader.GetBoolean();
-
+        
         reader.Read();
         value.c1.x = reader.GetBoolean();
-
+        
         reader.Read();
         value.c1.y = reader.GetBoolean();
-
+        
         reader.Read();
         value.c1.z = reader.GetBoolean();
-
+        
         reader.Read();
         value.c2.x = reader.GetBoolean();
-
+        
         reader.Read();
         value.c2.y = reader.GetBoolean();
-
+        
         reader.Read();
         value.c2.z = reader.GetBoolean();
+        
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
@@ -70,35 +63,36 @@ public abstract class Bool3x3JsonConverter : JsonConverter<bool3x3>
     }
 
     public void WriteAsArray(Utf8JsonWriter writer, bool3x3 value, JsonSerializerOptions options)
+
     {
+
         writer.WriteStartArray();
-
+        
         writer.WriteBooleanValue(value.c0.x);
-
+        
         writer.WriteBooleanValue(value.c0.y);
-
+        
         writer.WriteBooleanValue(value.c0.z);
-
+        
         writer.WriteBooleanValue(value.c1.x);
-
+        
         writer.WriteBooleanValue(value.c1.y);
-
+        
         writer.WriteBooleanValue(value.c1.z);
-
+        
         writer.WriteBooleanValue(value.c2.x);
-
+        
         writer.WriteBooleanValue(value.c2.y);
-
+        
         writer.WriteBooleanValue(value.c2.z);
-
+        
         writer.WriteEndArray();
+
     }
 
-    public bool3x3 ReadAsObject(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
+
+    public bool3x3 ReadAsObject(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
     {
         if (reader.TokenType != JsonTokenType.StartObject)
         {
@@ -106,33 +100,34 @@ public abstract class Bool3x3JsonConverter : JsonConverter<bool3x3>
         }
 
         var value = new bool3x3();
-
+        
         reader.Read();
         value.c0.x = reader.GetBoolean("m00");
-
+        
         reader.Read();
         value.c0.y = reader.GetBoolean("m01");
-
+        
         reader.Read();
         value.c0.z = reader.GetBoolean("m02");
-
+        
         reader.Read();
         value.c1.x = reader.GetBoolean("m10");
-
+        
         reader.Read();
         value.c1.y = reader.GetBoolean("m11");
-
+        
         reader.Read();
         value.c1.z = reader.GetBoolean("m12");
-
+        
         reader.Read();
         value.c2.x = reader.GetBoolean("m20");
-
+        
         reader.Read();
         value.c2.y = reader.GetBoolean("m21");
-
+        
         reader.Read();
         value.c2.z = reader.GetBoolean("m22");
+        
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
@@ -144,75 +139,71 @@ public abstract class Bool3x3JsonConverter : JsonConverter<bool3x3>
     }
 
     public void WriteAsObject(Utf8JsonWriter writer, bool3x3 value, JsonSerializerOptions options)
+
     {
+
         writer.WriteStartObject();
-
+        
         writer.WriteBoolean("m00", value.c0.x);
-
+        
         writer.WriteBoolean("m01", value.c0.y);
-
+        
         writer.WriteBoolean("m02", value.c0.z);
-
+        
         writer.WriteBoolean("m10", value.c1.x);
-
+        
         writer.WriteBoolean("m11", value.c1.y);
-
+        
         writer.WriteBoolean("m12", value.c1.z);
-
+        
         writer.WriteBoolean("m20", value.c2.x);
-
+        
         writer.WriteBoolean("m21", value.c2.y);
-
+        
         writer.WriteBoolean("m22", value.c2.z);
-
+        
         writer.WriteEndObject();
+
     }
 
-    public bool3x3 ReadCompatible(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    ) =>
-        reader.TokenType switch
+    public bool3x3 ReadCompatible(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
+    =>
+         reader.TokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray(ref reader, typeToConvert, options),
             JsonTokenType.StartObject => ReadAsObject(ref reader, typeToConvert, options),
             _ => throw new JsonException(),
         };
+    
 
     private readonly ReadFunc readFunc;
     private readonly WriteFunc writeFunc;
 
-    public Bool3x3JsonConverter(
-        JsonTokenType readerTokenType = JsonTokenType.None,
-        JsonTokenType writerTokenType = JsonTokenType.None
-    )
-        : base()
+    public Bool3x3JsonConverter(JsonTokenType readerTokenType = JsonTokenType.None, JsonTokenType writerTokenType = JsonTokenType.None) : base()
+
     {
-        readFunc = readerTokenType switch
-        {
+
+        readFunc = readerTokenType switch {
             JsonTokenType.StartArray => ReadAsArray,
             JsonTokenType.StartObject => ReadAsObject,
             _ => ReadCompatible,
         };
 
-        writeFunc = writerTokenType switch
-        {
+        writeFunc = writerTokenType switch {
             JsonTokenType.StartArray => WriteAsArray,
             JsonTokenType.StartObject => WriteAsObject,
             _ => WriteAsArray, //!< we need _some_ kind of default
         };
+
     }
 
-    public override bool3x3 Read(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    ) => readFunc(ref reader, typeToConvert, options);
 
-    public override void Write(
-        Utf8JsonWriter writer,
-        bool3x3 value,
-        JsonSerializerOptions options
-    ) => writeFunc(writer, value, options);
+    public override bool3x3 Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        => readFunc(ref reader, typeToConvert, options);
+
+    public override void Write(Utf8JsonWriter writer, bool3x3 value, JsonSerializerOptions options)
+        => writeFunc(writer, value, options);
+
 }
+
