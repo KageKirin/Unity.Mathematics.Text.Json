@@ -6,44 +6,11 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public class Int2JsonArrayConverter : JsonConverter<int2>
+public class Int2JsonArrayConverter : Int2JsonConverter
 {
-    public override int2 Read(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
-    {
-        if (reader.TokenType != JsonTokenType.StartArray)
-        {
-            throw new JsonException();
-        }
-
-        var value = new int2();
-
-        reader.Read();
-        value.x = reader.GetInt32();
-
-        reader.Read();
-        value.y = reader.GetInt32();
-
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.EndArray)
-        {
-            throw new JsonException();
-        }
-
-        return value;
-    }
-
-    public override void Write(Utf8JsonWriter writer, int2 value, JsonSerializerOptions options)
-    {
-        writer.WriteStartArray();
-
-        writer.WriteNumberValue(value.x);
-
-        writer.WriteNumberValue(value.y);
-
-        writer.WriteEndArray();
-    }
+    public Int2JsonArrayConverter()
+        : base(
+            readerTokenType: JsonTokenType.None, //!< compatible read
+            writerTokenType: JsonTokenType.StartArray //!< write as array
+        ) { }
 }
