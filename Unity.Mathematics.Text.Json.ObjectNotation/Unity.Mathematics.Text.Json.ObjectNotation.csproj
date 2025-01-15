@@ -10,7 +10,7 @@
     <Title>Unity.Mathematics Text.Json Object Notation</Title>
     <Description>System.Text.Json serializers for Unity.Mathematics types, serializing data as objects</Description>
     <PackageTags>Unity;Mathematics;System.Text.Json;Json</PackageTags>
-    <PackageIcon>Icon.png</PackageIcon>
+    <PackageIcon>IconObjectNotation.png</PackageIcon>
     <PackageIconUrl>https://raw.github.com/KageKirin/Unity.Mathematics.Text.Json/IconObjectNotation.png</PackageIconUrl>
   </PropertyGroup>
 
