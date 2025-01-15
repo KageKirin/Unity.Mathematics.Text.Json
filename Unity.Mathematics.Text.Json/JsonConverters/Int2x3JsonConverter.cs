@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -7,16 +6,60 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public abstract class Int2x3JsonConverter : JsonConverter<int2x3>
-
+public class Int2x3JsonConverter : JsonConverter<int2x3>
 {
+    public delegate int2x3 ReadFunc(
+        ref Utf8JsonReader reader,
+        Type typeToConvert,
+        JsonSerializerOptions options
+    );
+    public delegate void WriteFunc(
+        Utf8JsonWriter writer,
+        int2x3 value,
+        JsonSerializerOptions options
+    );
 
-    public delegate int2x3 ReadFunc(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options);
+    private readonly ReadFunc readFunc;
+    private readonly WriteFunc writeFunc;
 
-    public delegate void WriteFunc(Utf8JsonWriter writer, int2x3 value, JsonSerializerOptions options);
+    public Int2x3JsonConverter(
+        JsonTokenType readerTokenType = JsonTokenType.None,
+        JsonTokenType writerTokenType = JsonTokenType.None
+    )
+        : base()
+    {
+        readFunc = readerTokenType switch
+        {
+            JsonTokenType.StartArray => ReadAsArray,
+            JsonTokenType.StartObject => ReadAsObject,
+            _ => ReadCompatible,
+        };
 
-    public int2x3 ReadAsArray(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        writeFunc = writerTokenType switch
+        {
+            JsonTokenType.StartArray => WriteAsArray,
+            JsonTokenType.StartObject => WriteAsObject,
+            _ => WriteAsArray, //!< we need _some_ kind of default
+        };
+    }
 
+    public override int2x3 Read(
+        ref Utf8JsonReader reader,
+        Type typeToConvert,
+        JsonSerializerOptions options
+    ) => readFunc(ref reader, typeToConvert, options);
+
+    public override void Write(
+        Utf8JsonWriter writer,
+        int2x3 value,
+        JsonSerializerOptions options
+    ) => writeFunc(writer, value, options);
+
+    public int2x3 ReadAsArray(
+        ref Utf8JsonReader reader,
+        Type typeToConvert,
+        JsonSerializerOptions options
+    )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
         {
@@ -24,25 +67,24 @@ public abstract class Int2x3JsonConverter : JsonConverter<int2x3>
         }
 
         var value = new int2x3();
-        
+
         reader.Read();
         value.c0.x = reader.GetInt32();
-        
+
         reader.Read();
         value.c0.y = reader.GetInt32();
-        
+
         reader.Read();
         value.c1.x = reader.GetInt32();
-        
+
         reader.Read();
         value.c1.y = reader.GetInt32();
-        
+
         reader.Read();
         value.c2.x = reader.GetInt32();
-        
+
         reader.Read();
         value.c2.y = reader.GetInt32();
-        
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
@@ -54,30 +96,22 @@ public abstract class Int2x3JsonConverter : JsonConverter<int2x3>
     }
 
     public void WriteAsArray(Utf8JsonWriter writer, int2x3 value, JsonSerializerOptions options)
-
     {
-
         writer.WriteStartArray();
-        
         writer.WriteNumberValue(value.c0.x);
-        
         writer.WriteNumberValue(value.c0.y);
-        
         writer.WriteNumberValue(value.c1.x);
-        
         writer.WriteNumberValue(value.c1.y);
-        
         writer.WriteNumberValue(value.c2.x);
-        
         writer.WriteNumberValue(value.c2.y);
-        
         writer.WriteEndArray();
-
     }
 
-
-    public int2x3 ReadAsObject(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-
+    public int2x3 ReadAsObject(
+        ref Utf8JsonReader reader,
+        Type typeToConvert,
+        JsonSerializerOptions options
+    )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
         {
@@ -85,25 +119,24 @@ public abstract class Int2x3JsonConverter : JsonConverter<int2x3>
         }
 
         var value = new int2x3();
-        
+
         reader.Read();
         value.c0.x = reader.GetInt32("m00");
-        
+
         reader.Read();
         value.c0.y = reader.GetInt32("m01");
-        
+
         reader.Read();
         value.c1.x = reader.GetInt32("m10");
-        
+
         reader.Read();
         value.c1.y = reader.GetInt32("m11");
-        
+
         reader.Read();
         value.c2.x = reader.GetInt32("m20");
-        
+
         reader.Read();
         value.c2.y = reader.GetInt32("m21");
-        
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
@@ -115,65 +148,26 @@ public abstract class Int2x3JsonConverter : JsonConverter<int2x3>
     }
 
     public void WriteAsObject(Utf8JsonWriter writer, int2x3 value, JsonSerializerOptions options)
-
     {
-
         writer.WriteStartObject();
-        
         writer.WriteNumber("m00", value.c0.x);
-        
         writer.WriteNumber("m01", value.c0.y);
-        
         writer.WriteNumber("m10", value.c1.x);
-        
         writer.WriteNumber("m11", value.c1.y);
-        
         writer.WriteNumber("m20", value.c2.x);
-        
         writer.WriteNumber("m21", value.c2.y);
-        
         writer.WriteEndObject();
-
     }
 
-    public int2x3 ReadCompatible(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-
-    =>
-         reader.TokenType switch
+    public int2x3 ReadCompatible(
+        ref Utf8JsonReader reader,
+        Type typeToConvert,
+        JsonSerializerOptions options
+    ) =>
+        reader.TokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray(ref reader, typeToConvert, options),
             JsonTokenType.StartObject => ReadAsObject(ref reader, typeToConvert, options),
             _ => throw new JsonException(),
         };
-    
-
-    private readonly ReadFunc readFunc;
-    private readonly WriteFunc writeFunc;
-
-    public Int2x3JsonConverter(JsonTokenType readerTokenType = JsonTokenType.None, JsonTokenType writerTokenType = JsonTokenType.None) : base()
-
-    {
-
-        readFunc = readerTokenType switch {
-            JsonTokenType.StartArray => ReadAsArray,
-            JsonTokenType.StartObject => ReadAsObject,
-            _ => ReadCompatible,
-        };
-
-        writeFunc = writerTokenType switch {
-            JsonTokenType.StartArray => WriteAsArray,
-            JsonTokenType.StartObject => WriteAsObject,
-            _ => WriteAsArray, //!< we need _some_ kind of default
-        };
-
-    }
-
-
-    public override int2x3 Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        => readFunc(ref reader, typeToConvert, options);
-
-    public override void Write(Utf8JsonWriter writer, int2x3 value, JsonSerializerOptions options)
-        => writeFunc(writer, value, options);
-
 }
-
