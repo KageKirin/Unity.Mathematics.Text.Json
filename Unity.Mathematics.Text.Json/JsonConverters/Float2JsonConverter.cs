@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -7,24 +8,15 @@ using Unity.Mathematics;
 namespace Unity.Mathematics.Text.Json;
 
 public abstract class Float2JsonConverter : JsonConverter<float2>
+
 {
-    public delegate float2 ReadFunc(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    );
 
-    public delegate void WriteFunc(
-        Utf8JsonWriter writer,
-        float2 value,
-        JsonSerializerOptions options
-    );
+    public delegate float2 ReadFunc(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options);
 
-    public float2 ReadAsArray(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
+    public delegate void WriteFunc(Utf8JsonWriter writer, float2 value, JsonSerializerOptions options);
+
+    public float2 ReadAsArray(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
     {
         if (reader.TokenType != JsonTokenType.StartArray)
         {
@@ -32,12 +24,13 @@ public abstract class Float2JsonConverter : JsonConverter<float2>
         }
 
         var value = new float2();
-
+        
         reader.Read();
         value.x = (float)reader.GetDouble();
-
+        
         reader.Read();
         value.y = (float)reader.GetDouble();
+        
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
@@ -49,21 +42,22 @@ public abstract class Float2JsonConverter : JsonConverter<float2>
     }
 
     public void WriteAsArray(Utf8JsonWriter writer, float2 value, JsonSerializerOptions options)
+
     {
+
         writer.WriteStartArray();
-
+        
         writer.WriteNumberValue(value.x);
-
+        
         writer.WriteNumberValue(value.y);
-
+        
         writer.WriteEndArray();
+
     }
 
-    public float2 ReadAsObject(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
+
+    public float2 ReadAsObject(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
     {
         if (reader.TokenType != JsonTokenType.StartObject)
         {
@@ -71,12 +65,13 @@ public abstract class Float2JsonConverter : JsonConverter<float2>
         }
 
         var value = new float2();
-
+        
         reader.Read();
         value.x = (float)reader.GetDouble("x");
-
+        
         reader.Read();
         value.y = (float)reader.GetDouble("y");
+        
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
@@ -88,61 +83,57 @@ public abstract class Float2JsonConverter : JsonConverter<float2>
     }
 
     public void WriteAsObject(Utf8JsonWriter writer, float2 value, JsonSerializerOptions options)
+
     {
+
         writer.WriteStartObject();
-
+        
         writer.WriteNumber("x", value.x);
-
+        
         writer.WriteNumber("y", value.y);
-
+        
         writer.WriteEndObject();
+
     }
 
-    public float2 ReadCompatible(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    ) =>
-        reader.TokenType switch
+    public float2 ReadCompatible(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
+    =>
+         reader.TokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray(ref reader, typeToConvert, options),
             JsonTokenType.StartObject => ReadAsObject(ref reader, typeToConvert, options),
             _ => throw new JsonException(),
         };
+    
 
     private readonly ReadFunc readFunc;
     private readonly WriteFunc writeFunc;
 
-    public Float2JsonConverter(
-        JsonTokenType readerTokenType = JsonTokenType.None,
-        JsonTokenType writerTokenType = JsonTokenType.None
-    )
-        : base()
+    public Float2JsonConverter(JsonTokenType readerTokenType = JsonTokenType.None, JsonTokenType writerTokenType = JsonTokenType.None) : base()
+
     {
-        readFunc = readerTokenType switch
-        {
+
+        readFunc = readerTokenType switch {
             JsonTokenType.StartArray => ReadAsArray,
             JsonTokenType.StartObject => ReadAsObject,
             _ => ReadCompatible,
         };
 
-        writeFunc = writerTokenType switch
-        {
+        writeFunc = writerTokenType switch {
             JsonTokenType.StartArray => WriteAsArray,
             JsonTokenType.StartObject => WriteAsObject,
             _ => WriteAsArray, //!< we need _some_ kind of default
         };
+
     }
 
-    public override float2 Read(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    ) => readFunc(ref reader, typeToConvert, options);
 
-    public override void Write(
-        Utf8JsonWriter writer,
-        float2 value,
-        JsonSerializerOptions options
-    ) => writeFunc(writer, value, options);
+    public override float2 Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        => readFunc(ref reader, typeToConvert, options);
+
+    public override void Write(Utf8JsonWriter writer, float2 value, JsonSerializerOptions options)
+        => writeFunc(writer, value, options);
+
 }
+
