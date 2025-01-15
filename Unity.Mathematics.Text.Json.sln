@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C55D216B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functionality", "Tests\Functionality\Functionality.csproj", "{80B7C065-AACA-44E2-80E3-9B43319634C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Text.Json.ArrayNotation", "Unity.Mathematics.Text.Json.ArrayNotation\Unity.Mathematics.Text.Json.ArrayNotation.csproj", "{903B1723-FF6A-4DCF-A2FE-434790A93248}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{80B7C065-AACA-44E2-80E3-9B43319634C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80B7C065-AACA-44E2-80E3-9B43319634C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80B7C065-AACA-44E2-80E3-9B43319634C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903B1723-FF6A-4DCF-A2FE-434790A93248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903B1723-FF6A-4DCF-A2FE-434790A93248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903B1723-FF6A-4DCF-A2FE-434790A93248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903B1723-FF6A-4DCF-A2FE-434790A93248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{80B7C065-AACA-44E2-80E3-9B43319634C5} = {C55D216B-3A79-4B7B-9246-D20244B9AFF1}
