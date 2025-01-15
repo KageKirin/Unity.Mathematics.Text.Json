@@ -10,7 +10,7 @@
     <Title>Unity.Mathematics Text.Json Array Notation</Title>
     <Description>System.Text.Json serializers for Unity.Mathematics types, serializing data as arrays</Description>
     <PackageTags>Unity;Mathematics;System.Text.Json;Json</PackageTags>
-    <PackageIcon>Icon.png</PackageIcon>
+    <PackageIcon>IconArrayNotation.png</PackageIcon>
     <PackageIconUrl>https://raw.github.com/KageKirin/Unity.Mathematics.Text.Json/IconArrayNotation.png</PackageIconUrl>
   </PropertyGroup>
 
