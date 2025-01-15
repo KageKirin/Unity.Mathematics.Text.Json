@@ -3,7 +3,11 @@
     "path": "Unity.Mathematics.Text.Json.sln",
     "projects": [
       "Unity.Mathematics.Text.Json\\Unity.Mathematics.Text.Json.csproj",
-      "Tests\\Functionality\\Functionality.csproj"
+      "Unity.Mathematics.Text.Json.ArrayNotation\\Unity.Mathematics.Text.Json.ArrayNotation.csproj",
+      "Unity.Mathematics.Text.Json.ObjectNotation\\Unity.Mathematics.Text.Json.ObjectNotation.csproj",
+      "Tests\\Functionality\\Functionality.csproj",
+      "Tests\\ArrayNotation.Functionality\\ArrayNotation.Functionality.csproj",
+      "Tests\\ObjectNotation.Functionality\\ObjectNotation.Functionality.csproj"
     ]
   }
 }
