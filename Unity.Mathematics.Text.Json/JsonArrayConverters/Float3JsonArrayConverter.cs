@@ -6,49 +6,11 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public class Float3JsonArrayConverter : JsonConverter<float3>
+public class Float3JsonArrayConverter : Float3JsonConverter
 {
-    public override float3 Read(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
-    {
-        if (reader.TokenType != JsonTokenType.StartArray)
-        {
-            throw new JsonException();
-        }
-
-        var value = new float3();
-
-        reader.Read();
-        value.x = (float)reader.GetDouble();
-
-        reader.Read();
-        value.y = (float)reader.GetDouble();
-
-        reader.Read();
-        value.z = (float)reader.GetDouble();
-
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.EndArray)
-        {
-            throw new JsonException();
-        }
-
-        return value;
-    }
-
-    public override void Write(Utf8JsonWriter writer, float3 value, JsonSerializerOptions options)
-    {
-        writer.WriteStartArray();
-
-        writer.WriteNumberValue(value.x);
-
-        writer.WriteNumberValue(value.y);
-
-        writer.WriteNumberValue(value.z);
-
-        writer.WriteEndArray();
-    }
+    public Float3JsonArrayConverter()
+        : base(
+            readerTokenType: JsonTokenType.None, //!< compatible read
+            writerTokenType: JsonTokenType.StartArray //!< write as array
+        ) { }
 }

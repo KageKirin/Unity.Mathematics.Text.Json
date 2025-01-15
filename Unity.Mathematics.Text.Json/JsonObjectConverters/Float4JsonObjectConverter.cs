@@ -6,54 +6,11 @@ using Unity.Mathematics;
 
 namespace Unity.Mathematics.Text.Json;
 
-public class Float4JsonObjectConverter : JsonConverter<float4>
+public class Float4JsonObjectConverter : Float4JsonConverter
 {
-    public override float4 Read(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options
-    )
-    {
-        if (reader.TokenType != JsonTokenType.StartObject)
-        {
-            throw new JsonException();
-        }
-
-        var value = new float4();
-
-        reader.Read();
-        value.x = (float)reader.GetDouble("x");
-
-        reader.Read();
-        value.y = (float)reader.GetDouble("y");
-
-        reader.Read();
-        value.z = (float)reader.GetDouble("z");
-
-        reader.Read();
-        value.w = (float)reader.GetDouble("w");
-
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.EndObject)
-        {
-            throw new JsonException();
-        }
-
-        return value;
-    }
-
-    public override void Write(Utf8JsonWriter writer, float4 value, JsonSerializerOptions options)
-    {
-        writer.WriteStartObject();
-
-        writer.WriteNumber("x", value.x);
-
-        writer.WriteNumber("y", value.y);
-
-        writer.WriteNumber("z", value.z);
-
-        writer.WriteNumber("w", value.w);
-
-        writer.WriteEndObject();
-    }
+    public Float4JsonObjectConverter()
+        : base(
+            readerTokenType: JsonTokenType.None, //!< compatible read
+            writerTokenType: JsonTokenType.StartObject //!< write as object
+        ) { }
 }
