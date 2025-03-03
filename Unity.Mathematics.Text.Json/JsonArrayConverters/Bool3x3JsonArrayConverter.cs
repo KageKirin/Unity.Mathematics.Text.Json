@@ -6,7 +6,7 @@ public class Bool3x3JsonArrayConverter : Bool3x3JsonConverter
 {
     public Bool3x3JsonArrayConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartArray //!< write as array
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartArray //!< write as array
         ) { }
 }

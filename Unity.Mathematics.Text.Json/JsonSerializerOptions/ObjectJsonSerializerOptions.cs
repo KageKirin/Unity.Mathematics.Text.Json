@@ -71,7 +71,7 @@ public static class Object
                 new Bool3x4JsonObjectConverter(),
                 new Bool4x2JsonObjectConverter(),
                 new Bool4x3JsonObjectConverter(),
-                new Bool4x4JsonObjectConverter(),
+                new Bool4x4JsonObjectConverter()
             }
         };
 }

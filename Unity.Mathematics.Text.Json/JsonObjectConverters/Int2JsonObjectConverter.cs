@@ -6,7 +6,7 @@ public class Int2JsonObjectConverter : Int2JsonConverter
 {
     public Int2JsonObjectConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartObject //!< write as object
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartObject //!< write as object
         ) { }
 }

@@ -71,7 +71,7 @@ public static class Array
                 new Bool3x4JsonArrayConverter(),
                 new Bool4x2JsonArrayConverter(),
                 new Bool4x3JsonArrayConverter(),
-                new Bool4x4JsonArrayConverter(),
+                new Bool4x4JsonArrayConverter()
             }
         };
 }

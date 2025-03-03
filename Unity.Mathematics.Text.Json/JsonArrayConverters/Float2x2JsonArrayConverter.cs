@@ -6,7 +6,7 @@ public class Float2x2JsonArrayConverter : Float2x2JsonConverter
 {
     public Float2x2JsonArrayConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartArray //!< write as array
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartArray //!< write as array
         ) { }
 }
