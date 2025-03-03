@@ -12,9 +12,7 @@ public class Double4x3JsonConverter : JsonConverter<double4x3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new double4x3();
 
@@ -56,9 +54,7 @@ public class Double4x3JsonConverter : JsonConverter<double4x3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
