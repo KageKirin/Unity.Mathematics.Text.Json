@@ -8,7 +8,7 @@ public class Float2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float2(x: 1, y: 2);
+        var dataA = math.float2(1, 2);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -23,7 +23,7 @@ public class Float3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float3(x: 1, y: 2, z: 3);
+        var dataA = math.float3(1, 2, 3);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -38,7 +38,7 @@ public class Float4JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float4(x: 1, y: 2, z: 3, w: 4);
+        var dataA = math.float4(1, 2, 3, 4);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -53,7 +53,7 @@ public class Float2x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float2x2(c0: math.float2(x: 1, y: 2), c1: math.float2(x: 3, y: 4));
+        var dataA = math.float2x2(math.float2(1, 2), math.float2(3, 4));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -68,10 +68,7 @@ public class Float3x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float3x2(
-            c0: math.float3(x: 1, y: 2, z: 3),
-            c1: math.float3(x: 4, y: 5, z: 6)
-        );
+        var dataA = math.float3x2(math.float3(1, 2, 3), math.float3(4, 5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -86,10 +83,7 @@ public class Float4x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float4x2(
-            c0: math.float4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.float4(x: 5, y: 6, z: 7, w: 8)
-        );
+        var dataA = math.float4x2(math.float4(1, 2, 3, 4), math.float4(5, 6, 7, 8));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -104,11 +98,7 @@ public class Float2x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float2x3(
-            c0: math.float2(x: 1, y: 2),
-            c1: math.float2(x: 3, y: 4),
-            c2: math.float2(x: 5, y: 6)
-        );
+        var dataA = math.float2x3(math.float2(1, 2), math.float2(3, 4), math.float2(5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -123,11 +113,7 @@ public class Float3x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.float3x3(
-            c0: math.float3(x: 1, y: 2, z: 3),
-            c1: math.float3(x: 4, y: 5, z: 6),
-            c2: math.float3(x: 7, y: 8, z: 9)
-        );
+        var dataA = math.float3x3(math.float3(1, 2, 3), math.float3(4, 5, 6), math.float3(7, 8, 9));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -143,9 +129,9 @@ public class Float4x3JsonConverterTest
     public void Test()
     {
         var dataA = math.float4x3(
-            c0: math.float4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.float4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.float4(x: 9, y: 10, z: 11, w: 12)
+            math.float4(1, 2, 3, 4),
+            math.float4(5, 6, 7, 8),
+            math.float4(9, 10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -162,10 +148,10 @@ public class Float2x4JsonConverterTest
     public void Test()
     {
         var dataA = math.float2x4(
-            c0: math.float2(x: 1, y: 2),
-            c1: math.float2(x: 3, y: 4),
-            c2: math.float2(x: 5, y: 6),
-            c3: math.float2(x: 7, y: 8)
+            math.float2(1, 2),
+            math.float2(3, 4),
+            math.float2(5, 6),
+            math.float2(7, 8)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -182,10 +168,10 @@ public class Float3x4JsonConverterTest
     public void Test()
     {
         var dataA = math.float3x4(
-            c0: math.float3(x: 1, y: 2, z: 3),
-            c1: math.float3(x: 4, y: 5, z: 6),
-            c2: math.float3(x: 7, y: 8, z: 9),
-            c3: math.float3(x: 10, y: 11, z: 12)
+            math.float3(1, 2, 3),
+            math.float3(4, 5, 6),
+            math.float3(7, 8, 9),
+            math.float3(10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -202,10 +188,10 @@ public class Float4x4JsonConverterTest
     public void Test()
     {
         var dataA = math.float4x4(
-            c0: math.float4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.float4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.float4(x: 9, y: 10, z: 11, w: 12),
-            c3: math.float4(x: 13, y: 14, z: 15, w: 16)
+            math.float4(1, 2, 3, 4),
+            math.float4(5, 6, 7, 8),
+            math.float4(9, 10, 11, 12),
+            math.float4(13, 14, 15, 16)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -221,7 +207,7 @@ public class Double2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double2(x: 1, y: 2);
+        var dataA = math.double2(1, 2);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -236,7 +222,7 @@ public class Double3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double3(x: 1, y: 2, z: 3);
+        var dataA = math.double3(1, 2, 3);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -251,7 +237,7 @@ public class Double4JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double4(x: 1, y: 2, z: 3, w: 4);
+        var dataA = math.double4(1, 2, 3, 4);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -266,7 +252,7 @@ public class Double2x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double2x2(c0: math.double2(x: 1, y: 2), c1: math.double2(x: 3, y: 4));
+        var dataA = math.double2x2(math.double2(1, 2), math.double2(3, 4));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -281,10 +267,7 @@ public class Double3x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double3x2(
-            c0: math.double3(x: 1, y: 2, z: 3),
-            c1: math.double3(x: 4, y: 5, z: 6)
-        );
+        var dataA = math.double3x2(math.double3(1, 2, 3), math.double3(4, 5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -299,10 +282,7 @@ public class Double4x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double4x2(
-            c0: math.double4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.double4(x: 5, y: 6, z: 7, w: 8)
-        );
+        var dataA = math.double4x2(math.double4(1, 2, 3, 4), math.double4(5, 6, 7, 8));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -317,11 +297,7 @@ public class Double2x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.double2x3(
-            c0: math.double2(x: 1, y: 2),
-            c1: math.double2(x: 3, y: 4),
-            c2: math.double2(x: 5, y: 6)
-        );
+        var dataA = math.double2x3(math.double2(1, 2), math.double2(3, 4), math.double2(5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -337,9 +313,9 @@ public class Double3x3JsonConverterTest
     public void Test()
     {
         var dataA = math.double3x3(
-            c0: math.double3(x: 1, y: 2, z: 3),
-            c1: math.double3(x: 4, y: 5, z: 6),
-            c2: math.double3(x: 7, y: 8, z: 9)
+            math.double3(1, 2, 3),
+            math.double3(4, 5, 6),
+            math.double3(7, 8, 9)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -356,9 +332,9 @@ public class Double4x3JsonConverterTest
     public void Test()
     {
         var dataA = math.double4x3(
-            c0: math.double4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.double4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.double4(x: 9, y: 10, z: 11, w: 12)
+            math.double4(1, 2, 3, 4),
+            math.double4(5, 6, 7, 8),
+            math.double4(9, 10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -375,10 +351,10 @@ public class Double2x4JsonConverterTest
     public void Test()
     {
         var dataA = math.double2x4(
-            c0: math.double2(x: 1, y: 2),
-            c1: math.double2(x: 3, y: 4),
-            c2: math.double2(x: 5, y: 6),
-            c3: math.double2(x: 7, y: 8)
+            math.double2(1, 2),
+            math.double2(3, 4),
+            math.double2(5, 6),
+            math.double2(7, 8)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -395,10 +371,10 @@ public class Double3x4JsonConverterTest
     public void Test()
     {
         var dataA = math.double3x4(
-            c0: math.double3(x: 1, y: 2, z: 3),
-            c1: math.double3(x: 4, y: 5, z: 6),
-            c2: math.double3(x: 7, y: 8, z: 9),
-            c3: math.double3(x: 10, y: 11, z: 12)
+            math.double3(1, 2, 3),
+            math.double3(4, 5, 6),
+            math.double3(7, 8, 9),
+            math.double3(10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -415,10 +391,10 @@ public class Double4x4JsonConverterTest
     public void Test()
     {
         var dataA = math.double4x4(
-            c0: math.double4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.double4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.double4(x: 9, y: 10, z: 11, w: 12),
-            c3: math.double4(x: 13, y: 14, z: 15, w: 16)
+            math.double4(1, 2, 3, 4),
+            math.double4(5, 6, 7, 8),
+            math.double4(9, 10, 11, 12),
+            math.double4(13, 14, 15, 16)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -434,7 +410,7 @@ public class Int2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int2(x: 1, y: 2);
+        var dataA = math.int2(1, 2);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -449,7 +425,7 @@ public class Int3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int3(x: 1, y: 2, z: 3);
+        var dataA = math.int3(1, 2, 3);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -464,7 +440,7 @@ public class Int4JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int4(x: 1, y: 2, z: 3, w: 4);
+        var dataA = math.int4(1, 2, 3, 4);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -479,7 +455,7 @@ public class Int2x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int2x2(c0: math.int2(x: 1, y: 2), c1: math.int2(x: 3, y: 4));
+        var dataA = math.int2x2(math.int2(1, 2), math.int2(3, 4));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -494,7 +470,7 @@ public class Int3x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int3x2(c0: math.int3(x: 1, y: 2, z: 3), c1: math.int3(x: 4, y: 5, z: 6));
+        var dataA = math.int3x2(math.int3(1, 2, 3), math.int3(4, 5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -509,10 +485,7 @@ public class Int4x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int4x2(
-            c0: math.int4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.int4(x: 5, y: 6, z: 7, w: 8)
-        );
+        var dataA = math.int4x2(math.int4(1, 2, 3, 4), math.int4(5, 6, 7, 8));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -527,11 +500,7 @@ public class Int2x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int2x3(
-            c0: math.int2(x: 1, y: 2),
-            c1: math.int2(x: 3, y: 4),
-            c2: math.int2(x: 5, y: 6)
-        );
+        var dataA = math.int2x3(math.int2(1, 2), math.int2(3, 4), math.int2(5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -546,11 +515,7 @@ public class Int3x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int3x3(
-            c0: math.int3(x: 1, y: 2, z: 3),
-            c1: math.int3(x: 4, y: 5, z: 6),
-            c2: math.int3(x: 7, y: 8, z: 9)
-        );
+        var dataA = math.int3x3(math.int3(1, 2, 3), math.int3(4, 5, 6), math.int3(7, 8, 9));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -566,9 +531,9 @@ public class Int4x3JsonConverterTest
     public void Test()
     {
         var dataA = math.int4x3(
-            c0: math.int4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.int4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.int4(x: 9, y: 10, z: 11, w: 12)
+            math.int4(1, 2, 3, 4),
+            math.int4(5, 6, 7, 8),
+            math.int4(9, 10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -584,12 +549,7 @@ public class Int2x4JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.int2x4(
-            c0: math.int2(x: 1, y: 2),
-            c1: math.int2(x: 3, y: 4),
-            c2: math.int2(x: 5, y: 6),
-            c3: math.int2(x: 7, y: 8)
-        );
+        var dataA = math.int2x4(math.int2(1, 2), math.int2(3, 4), math.int2(5, 6), math.int2(7, 8));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -605,10 +565,10 @@ public class Int3x4JsonConverterTest
     public void Test()
     {
         var dataA = math.int3x4(
-            c0: math.int3(x: 1, y: 2, z: 3),
-            c1: math.int3(x: 4, y: 5, z: 6),
-            c2: math.int3(x: 7, y: 8, z: 9),
-            c3: math.int3(x: 10, y: 11, z: 12)
+            math.int3(1, 2, 3),
+            math.int3(4, 5, 6),
+            math.int3(7, 8, 9),
+            math.int3(10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -625,10 +585,10 @@ public class Int4x4JsonConverterTest
     public void Test()
     {
         var dataA = math.int4x4(
-            c0: math.int4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.int4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.int4(x: 9, y: 10, z: 11, w: 12),
-            c3: math.int4(x: 13, y: 14, z: 15, w: 16)
+            math.int4(1, 2, 3, 4),
+            math.int4(5, 6, 7, 8),
+            math.int4(9, 10, 11, 12),
+            math.int4(13, 14, 15, 16)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -644,7 +604,7 @@ public class UInt2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint2(x: 1, y: 2);
+        var dataA = math.uint2(1, 2);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -659,7 +619,7 @@ public class UInt3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint3(x: 1, y: 2, z: 3);
+        var dataA = math.uint3(1, 2, 3);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -674,7 +634,7 @@ public class UInt4JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint4(x: 1, y: 2, z: 3, w: 4);
+        var dataA = math.uint4(1, 2, 3, 4);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -689,7 +649,7 @@ public class UInt2x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint2x2(c0: math.uint2(x: 1, y: 2), c1: math.uint2(x: 3, y: 4));
+        var dataA = math.uint2x2(math.uint2(1, 2), math.uint2(3, 4));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -704,10 +664,7 @@ public class UInt3x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint3x2(
-            c0: math.uint3(x: 1, y: 2, z: 3),
-            c1: math.uint3(x: 4, y: 5, z: 6)
-        );
+        var dataA = math.uint3x2(math.uint3(1, 2, 3), math.uint3(4, 5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -722,10 +679,7 @@ public class UInt4x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint4x2(
-            c0: math.uint4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.uint4(x: 5, y: 6, z: 7, w: 8)
-        );
+        var dataA = math.uint4x2(math.uint4(1, 2, 3, 4), math.uint4(5, 6, 7, 8));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -740,11 +694,7 @@ public class UInt2x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint2x3(
-            c0: math.uint2(x: 1, y: 2),
-            c1: math.uint2(x: 3, y: 4),
-            c2: math.uint2(x: 5, y: 6)
-        );
+        var dataA = math.uint2x3(math.uint2(1, 2), math.uint2(3, 4), math.uint2(5, 6));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -759,11 +709,7 @@ public class UInt3x3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.uint3x3(
-            c0: math.uint3(x: 1, y: 2, z: 3),
-            c1: math.uint3(x: 4, y: 5, z: 6),
-            c2: math.uint3(x: 7, y: 8, z: 9)
-        );
+        var dataA = math.uint3x3(math.uint3(1, 2, 3), math.uint3(4, 5, 6), math.uint3(7, 8, 9));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -779,9 +725,9 @@ public class UInt4x3JsonConverterTest
     public void Test()
     {
         var dataA = math.uint4x3(
-            c0: math.uint4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.uint4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.uint4(x: 9, y: 10, z: 11, w: 12)
+            math.uint4(1, 2, 3, 4),
+            math.uint4(5, 6, 7, 8),
+            math.uint4(9, 10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -798,10 +744,10 @@ public class UInt2x4JsonConverterTest
     public void Test()
     {
         var dataA = math.uint2x4(
-            c0: math.uint2(x: 1, y: 2),
-            c1: math.uint2(x: 3, y: 4),
-            c2: math.uint2(x: 5, y: 6),
-            c3: math.uint2(x: 7, y: 8)
+            math.uint2(1, 2),
+            math.uint2(3, 4),
+            math.uint2(5, 6),
+            math.uint2(7, 8)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -818,10 +764,10 @@ public class UInt3x4JsonConverterTest
     public void Test()
     {
         var dataA = math.uint3x4(
-            c0: math.uint3(x: 1, y: 2, z: 3),
-            c1: math.uint3(x: 4, y: 5, z: 6),
-            c2: math.uint3(x: 7, y: 8, z: 9),
-            c3: math.uint3(x: 10, y: 11, z: 12)
+            math.uint3(1, 2, 3),
+            math.uint3(4, 5, 6),
+            math.uint3(7, 8, 9),
+            math.uint3(10, 11, 12)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -838,10 +784,10 @@ public class UInt4x4JsonConverterTest
     public void Test()
     {
         var dataA = math.uint4x4(
-            c0: math.uint4(x: 1, y: 2, z: 3, w: 4),
-            c1: math.uint4(x: 5, y: 6, z: 7, w: 8),
-            c2: math.uint4(x: 9, y: 10, z: 11, w: 12),
-            c3: math.uint4(x: 13, y: 14, z: 15, w: 16)
+            math.uint4(1, 2, 3, 4),
+            math.uint4(5, 6, 7, 8),
+            math.uint4(9, 10, 11, 12),
+            math.uint4(13, 14, 15, 16)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -857,7 +803,7 @@ public class Bool2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.bool2(x: true, y: false);
+        var dataA = math.bool2(true, false);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -872,7 +818,7 @@ public class Bool3JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.bool3(x: true, y: false, z: true);
+        var dataA = math.bool3(true, false, true);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -887,7 +833,7 @@ public class Bool4JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.bool4(x: true, y: false, z: true, w: false);
+        var dataA = math.bool4(true, false, true, false);
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -902,10 +848,7 @@ public class Bool2x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.bool2x2(
-            c0: math.bool2(x: true, y: false),
-            c1: math.bool2(x: true, y: false)
-        );
+        var dataA = math.bool2x2(math.bool2(true, false), math.bool2(true, false));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -920,10 +863,7 @@ public class Bool3x2JsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = math.bool3x2(
-            c0: math.bool3(x: true, y: false, z: true),
-            c1: math.bool3(x: false, y: true, z: false)
-        );
+        var dataA = math.bool3x2(math.bool3(true, false, true), math.bool3(false, true, false));
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -939,8 +879,8 @@ public class Bool4x2JsonConverterTest
     public void Test()
     {
         var dataA = math.bool4x2(
-            c0: math.bool4(x: true, y: false, z: true, w: false),
-            c1: math.bool4(x: true, y: false, z: true, w: false)
+            math.bool4(true, false, true, false),
+            math.bool4(true, false, true, false)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -957,9 +897,9 @@ public class Bool2x3JsonConverterTest
     public void Test()
     {
         var dataA = math.bool2x3(
-            c0: math.bool2(x: true, y: false),
-            c1: math.bool2(x: true, y: false),
-            c2: math.bool2(x: true, y: false)
+            math.bool2(true, false),
+            math.bool2(true, false),
+            math.bool2(true, false)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -976,9 +916,9 @@ public class Bool3x3JsonConverterTest
     public void Test()
     {
         var dataA = math.bool3x3(
-            c0: math.bool3(x: true, y: false, z: true),
-            c1: math.bool3(x: false, y: true, z: false),
-            c2: math.bool3(x: true, y: false, z: true)
+            math.bool3(true, false, true),
+            math.bool3(false, true, false),
+            math.bool3(true, false, true)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -995,9 +935,9 @@ public class Bool4x3JsonConverterTest
     public void Test()
     {
         var dataA = math.bool4x3(
-            c0: math.bool4(x: true, y: false, z: true, w: false),
-            c1: math.bool4(x: true, y: false, z: true, w: false),
-            c2: math.bool4(x: true, y: false, z: true, w: false)
+            math.bool4(true, false, true, false),
+            math.bool4(true, false, true, false),
+            math.bool4(true, false, true, false)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1014,10 +954,10 @@ public class Bool2x4JsonConverterTest
     public void Test()
     {
         var dataA = math.bool2x4(
-            c0: math.bool2(x: true, y: false),
-            c1: math.bool2(x: true, y: false),
-            c2: math.bool2(x: true, y: false),
-            c3: math.bool2(x: true, y: false)
+            math.bool2(true, false),
+            math.bool2(true, false),
+            math.bool2(true, false),
+            math.bool2(true, false)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1034,10 +974,10 @@ public class Bool3x4JsonConverterTest
     public void Test()
     {
         var dataA = math.bool3x4(
-            c0: math.bool3(x: true, y: false, z: true),
-            c1: math.bool3(x: false, y: true, z: false),
-            c2: math.bool3(x: true, y: false, z: true),
-            c3: math.bool3(x: false, y: true, z: false)
+            math.bool3(true, false, true),
+            math.bool3(false, true, false),
+            math.bool3(true, false, true),
+            math.bool3(false, true, false)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1054,10 +994,10 @@ public class Bool4x4JsonConverterTest
     public void Test()
     {
         var dataA = math.bool4x4(
-            c0: math.bool4(x: true, y: false, z: true, w: false),
-            c1: math.bool4(x: true, y: false, z: true, w: false),
-            c2: math.bool4(x: true, y: false, z: true, w: false),
-            c3: math.bool4(x: true, y: false, z: true, w: false)
+            math.bool4(true, false, true, false),
+            math.bool4(true, false, true, false),
+            math.bool4(true, false, true, false),
+            math.bool4(true, false, true, false)
         );
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1073,7 +1013,7 @@ public class ArrayOfFloat2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float2[] { math.float2(x: 1, y: 2), };
+        var dataA = new[] { math.float2(1, 2) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1090,7 +1030,7 @@ public class ArrayOfFloat3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float3[] { math.float3(x: 1, y: 2, z: 3), };
+        var dataA = new[] { math.float3(1, 2, 3) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1107,7 +1047,7 @@ public class ArrayOfFloat4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float4[] { math.float4(x: 1, y: 2, z: 3, w: 4), };
+        var dataA = new[] { math.float4(1, 2, 3, 4) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1124,10 +1064,7 @@ public class ArrayOfFloat2x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float2x2[]
-        {
-            math.float2x2(c0: math.float2(x: 1, y: 2), c1: math.float2(x: 3, y: 4)),
-        };
+        var dataA = new[] { math.float2x2(math.float2(1, 2), math.float2(3, 4)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1144,10 +1081,7 @@ public class ArrayOfFloat3x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float3x2[]
-        {
-            math.float3x2(c0: math.float3(x: 1, y: 2, z: 3), c1: math.float3(x: 4, y: 5, z: 6)),
-        };
+        var dataA = new[] { math.float3x2(math.float3(1, 2, 3), math.float3(4, 5, 6)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1164,13 +1098,7 @@ public class ArrayOfFloat4x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float4x2[]
-        {
-            math.float4x2(
-                c0: math.float4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.float4(x: 5, y: 6, z: 7, w: 8)
-            ),
-        };
+        var dataA = new[] { math.float4x2(math.float4(1, 2, 3, 4), math.float4(5, 6, 7, 8)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1187,13 +1115,9 @@ public class ArrayOfFloat2x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float2x3[]
+        var dataA = new[]
         {
-            math.float2x3(
-                c0: math.float2(x: 1, y: 2),
-                c1: math.float2(x: 3, y: 4),
-                c2: math.float2(x: 5, y: 6)
-            ),
+            math.float2x3(math.float2(1, 2), math.float2(3, 4), math.float2(5, 6))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1211,13 +1135,9 @@ public class ArrayOfFloat3x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float3x3[]
+        var dataA = new[]
         {
-            math.float3x3(
-                c0: math.float3(x: 1, y: 2, z: 3),
-                c1: math.float3(x: 4, y: 5, z: 6),
-                c2: math.float3(x: 7, y: 8, z: 9)
-            ),
+            math.float3x3(math.float3(1, 2, 3), math.float3(4, 5, 6), math.float3(7, 8, 9))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1235,13 +1155,13 @@ public class ArrayOfFloat4x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float4x3[]
+        var dataA = new[]
         {
             math.float4x3(
-                c0: math.float4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.float4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.float4(x: 9, y: 10, z: 11, w: 12)
-            ),
+                math.float4(1, 2, 3, 4),
+                math.float4(5, 6, 7, 8),
+                math.float4(9, 10, 11, 12)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1259,14 +1179,14 @@ public class ArrayOfFloat2x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float2x4[]
+        var dataA = new[]
         {
             math.float2x4(
-                c0: math.float2(x: 1, y: 2),
-                c1: math.float2(x: 3, y: 4),
-                c2: math.float2(x: 5, y: 6),
-                c3: math.float2(x: 7, y: 8)
-            ),
+                math.float2(1, 2),
+                math.float2(3, 4),
+                math.float2(5, 6),
+                math.float2(7, 8)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1284,14 +1204,14 @@ public class ArrayOfFloat3x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float3x4[]
+        var dataA = new[]
         {
             math.float3x4(
-                c0: math.float3(x: 1, y: 2, z: 3),
-                c1: math.float3(x: 4, y: 5, z: 6),
-                c2: math.float3(x: 7, y: 8, z: 9),
-                c3: math.float3(x: 10, y: 11, z: 12)
-            ),
+                math.float3(1, 2, 3),
+                math.float3(4, 5, 6),
+                math.float3(7, 8, 9),
+                math.float3(10, 11, 12)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1309,14 +1229,14 @@ public class ArrayOfFloat4x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new float4x4[]
+        var dataA = new[]
         {
             math.float4x4(
-                c0: math.float4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.float4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.float4(x: 9, y: 10, z: 11, w: 12),
-                c3: math.float4(x: 13, y: 14, z: 15, w: 16)
-            ),
+                math.float4(1, 2, 3, 4),
+                math.float4(5, 6, 7, 8),
+                math.float4(9, 10, 11, 12),
+                math.float4(13, 14, 15, 16)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1334,7 +1254,7 @@ public class ArrayOfDouble2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double2[] { math.double2(x: 1, y: 2), };
+        var dataA = new[] { math.double2(1, 2) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1351,7 +1271,7 @@ public class ArrayOfDouble3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double3[] { math.double3(x: 1, y: 2, z: 3), };
+        var dataA = new[] { math.double3(1, 2, 3) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1368,7 +1288,7 @@ public class ArrayOfDouble4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double4[] { math.double4(x: 1, y: 2, z: 3, w: 4), };
+        var dataA = new[] { math.double4(1, 2, 3, 4) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1385,10 +1305,7 @@ public class ArrayOfDouble2x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double2x2[]
-        {
-            math.double2x2(c0: math.double2(x: 1, y: 2), c1: math.double2(x: 3, y: 4)),
-        };
+        var dataA = new[] { math.double2x2(math.double2(1, 2), math.double2(3, 4)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1405,10 +1322,7 @@ public class ArrayOfDouble3x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double3x2[]
-        {
-            math.double3x2(c0: math.double3(x: 1, y: 2, z: 3), c1: math.double3(x: 4, y: 5, z: 6)),
-        };
+        var dataA = new[] { math.double3x2(math.double3(1, 2, 3), math.double3(4, 5, 6)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1425,13 +1339,7 @@ public class ArrayOfDouble4x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double4x2[]
-        {
-            math.double4x2(
-                c0: math.double4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.double4(x: 5, y: 6, z: 7, w: 8)
-            ),
-        };
+        var dataA = new[] { math.double4x2(math.double4(1, 2, 3, 4), math.double4(5, 6, 7, 8)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1448,13 +1356,9 @@ public class ArrayOfDouble2x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double2x3[]
+        var dataA = new[]
         {
-            math.double2x3(
-                c0: math.double2(x: 1, y: 2),
-                c1: math.double2(x: 3, y: 4),
-                c2: math.double2(x: 5, y: 6)
-            ),
+            math.double2x3(math.double2(1, 2), math.double2(3, 4), math.double2(5, 6))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1472,13 +1376,9 @@ public class ArrayOfDouble3x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double3x3[]
+        var dataA = new[]
         {
-            math.double3x3(
-                c0: math.double3(x: 1, y: 2, z: 3),
-                c1: math.double3(x: 4, y: 5, z: 6),
-                c2: math.double3(x: 7, y: 8, z: 9)
-            ),
+            math.double3x3(math.double3(1, 2, 3), math.double3(4, 5, 6), math.double3(7, 8, 9))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1496,13 +1396,13 @@ public class ArrayOfDouble4x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double4x3[]
+        var dataA = new[]
         {
             math.double4x3(
-                c0: math.double4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.double4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.double4(x: 9, y: 10, z: 11, w: 12)
-            ),
+                math.double4(1, 2, 3, 4),
+                math.double4(5, 6, 7, 8),
+                math.double4(9, 10, 11, 12)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1520,14 +1420,14 @@ public class ArrayOfDouble2x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double2x4[]
+        var dataA = new[]
         {
             math.double2x4(
-                c0: math.double2(x: 1, y: 2),
-                c1: math.double2(x: 3, y: 4),
-                c2: math.double2(x: 5, y: 6),
-                c3: math.double2(x: 7, y: 8)
-            ),
+                math.double2(1, 2),
+                math.double2(3, 4),
+                math.double2(5, 6),
+                math.double2(7, 8)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1545,14 +1445,14 @@ public class ArrayOfDouble3x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double3x4[]
+        var dataA = new[]
         {
             math.double3x4(
-                c0: math.double3(x: 1, y: 2, z: 3),
-                c1: math.double3(x: 4, y: 5, z: 6),
-                c2: math.double3(x: 7, y: 8, z: 9),
-                c3: math.double3(x: 10, y: 11, z: 12)
-            ),
+                math.double3(1, 2, 3),
+                math.double3(4, 5, 6),
+                math.double3(7, 8, 9),
+                math.double3(10, 11, 12)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1570,14 +1470,14 @@ public class ArrayOfDouble4x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new double4x4[]
+        var dataA = new[]
         {
             math.double4x4(
-                c0: math.double4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.double4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.double4(x: 9, y: 10, z: 11, w: 12),
-                c3: math.double4(x: 13, y: 14, z: 15, w: 16)
-            ),
+                math.double4(1, 2, 3, 4),
+                math.double4(5, 6, 7, 8),
+                math.double4(9, 10, 11, 12),
+                math.double4(13, 14, 15, 16)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1595,7 +1495,7 @@ public class ArrayOfInt2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int2[] { math.int2(x: 1, y: 2), };
+        var dataA = new[] { math.int2(1, 2) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1612,7 +1512,7 @@ public class ArrayOfInt3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int3[] { math.int3(x: 1, y: 2, z: 3), };
+        var dataA = new[] { math.int3(1, 2, 3) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1629,7 +1529,7 @@ public class ArrayOfInt4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int4[] { math.int4(x: 1, y: 2, z: 3, w: 4), };
+        var dataA = new[] { math.int4(1, 2, 3, 4) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1646,10 +1546,7 @@ public class ArrayOfInt2x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int2x2[]
-        {
-            math.int2x2(c0: math.int2(x: 1, y: 2), c1: math.int2(x: 3, y: 4)),
-        };
+        var dataA = new[] { math.int2x2(math.int2(1, 2), math.int2(3, 4)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1666,10 +1563,7 @@ public class ArrayOfInt3x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int3x2[]
-        {
-            math.int3x2(c0: math.int3(x: 1, y: 2, z: 3), c1: math.int3(x: 4, y: 5, z: 6)),
-        };
+        var dataA = new[] { math.int3x2(math.int3(1, 2, 3), math.int3(4, 5, 6)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1686,13 +1580,7 @@ public class ArrayOfInt4x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int4x2[]
-        {
-            math.int4x2(
-                c0: math.int4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.int4(x: 5, y: 6, z: 7, w: 8)
-            ),
-        };
+        var dataA = new[] { math.int4x2(math.int4(1, 2, 3, 4), math.int4(5, 6, 7, 8)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1709,14 +1597,7 @@ public class ArrayOfInt2x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int2x3[]
-        {
-            math.int2x3(
-                c0: math.int2(x: 1, y: 2),
-                c1: math.int2(x: 3, y: 4),
-                c2: math.int2(x: 5, y: 6)
-            ),
-        };
+        var dataA = new[] { math.int2x3(math.int2(1, 2), math.int2(3, 4), math.int2(5, 6)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1733,13 +1614,9 @@ public class ArrayOfInt3x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int3x3[]
+        var dataA = new[]
         {
-            math.int3x3(
-                c0: math.int3(x: 1, y: 2, z: 3),
-                c1: math.int3(x: 4, y: 5, z: 6),
-                c2: math.int3(x: 7, y: 8, z: 9)
-            ),
+            math.int3x3(math.int3(1, 2, 3), math.int3(4, 5, 6), math.int3(7, 8, 9))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1757,13 +1634,9 @@ public class ArrayOfInt4x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int4x3[]
+        var dataA = new[]
         {
-            math.int4x3(
-                c0: math.int4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.int4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.int4(x: 9, y: 10, z: 11, w: 12)
-            ),
+            math.int4x3(math.int4(1, 2, 3, 4), math.int4(5, 6, 7, 8), math.int4(9, 10, 11, 12))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1781,14 +1654,9 @@ public class ArrayOfInt2x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int2x4[]
+        var dataA = new[]
         {
-            math.int2x4(
-                c0: math.int2(x: 1, y: 2),
-                c1: math.int2(x: 3, y: 4),
-                c2: math.int2(x: 5, y: 6),
-                c3: math.int2(x: 7, y: 8)
-            ),
+            math.int2x4(math.int2(1, 2), math.int2(3, 4), math.int2(5, 6), math.int2(7, 8))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1806,14 +1674,14 @@ public class ArrayOfInt3x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int3x4[]
+        var dataA = new[]
         {
             math.int3x4(
-                c0: math.int3(x: 1, y: 2, z: 3),
-                c1: math.int3(x: 4, y: 5, z: 6),
-                c2: math.int3(x: 7, y: 8, z: 9),
-                c3: math.int3(x: 10, y: 11, z: 12)
-            ),
+                math.int3(1, 2, 3),
+                math.int3(4, 5, 6),
+                math.int3(7, 8, 9),
+                math.int3(10, 11, 12)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1831,14 +1699,14 @@ public class ArrayOfInt4x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new int4x4[]
+        var dataA = new[]
         {
             math.int4x4(
-                c0: math.int4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.int4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.int4(x: 9, y: 10, z: 11, w: 12),
-                c3: math.int4(x: 13, y: 14, z: 15, w: 16)
-            ),
+                math.int4(1, 2, 3, 4),
+                math.int4(5, 6, 7, 8),
+                math.int4(9, 10, 11, 12),
+                math.int4(13, 14, 15, 16)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -1856,7 +1724,7 @@ public class ArrayOfUInt2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint2[] { math.uint2(x: 1, y: 2), };
+        var dataA = new[] { math.uint2(1, 2) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1873,7 +1741,7 @@ public class ArrayOfUInt3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint3[] { math.uint3(x: 1, y: 2, z: 3), };
+        var dataA = new[] { math.uint3(1, 2, 3) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1890,7 +1758,7 @@ public class ArrayOfUInt4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint4[] { math.uint4(x: 1, y: 2, z: 3, w: 4), };
+        var dataA = new[] { math.uint4(1, 2, 3, 4) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1907,10 +1775,7 @@ public class ArrayOfUInt2x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint2x2[]
-        {
-            math.uint2x2(c0: math.uint2(x: 1, y: 2), c1: math.uint2(x: 3, y: 4)),
-        };
+        var dataA = new[] { math.uint2x2(math.uint2(1, 2), math.uint2(3, 4)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1927,10 +1792,7 @@ public class ArrayOfUInt3x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint3x2[]
-        {
-            math.uint3x2(c0: math.uint3(x: 1, y: 2, z: 3), c1: math.uint3(x: 4, y: 5, z: 6)),
-        };
+        var dataA = new[] { math.uint3x2(math.uint3(1, 2, 3), math.uint3(4, 5, 6)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1947,13 +1809,7 @@ public class ArrayOfUInt4x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint4x2[]
-        {
-            math.uint4x2(
-                c0: math.uint4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.uint4(x: 5, y: 6, z: 7, w: 8)
-            ),
-        };
+        var dataA = new[] { math.uint4x2(math.uint4(1, 2, 3, 4), math.uint4(5, 6, 7, 8)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1970,14 +1826,7 @@ public class ArrayOfUInt2x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint2x3[]
-        {
-            math.uint2x3(
-                c0: math.uint2(x: 1, y: 2),
-                c1: math.uint2(x: 3, y: 4),
-                c2: math.uint2(x: 5, y: 6)
-            ),
-        };
+        var dataA = new[] { math.uint2x3(math.uint2(1, 2), math.uint2(3, 4), math.uint2(5, 6)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -1994,13 +1843,9 @@ public class ArrayOfUInt3x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint3x3[]
+        var dataA = new[]
         {
-            math.uint3x3(
-                c0: math.uint3(x: 1, y: 2, z: 3),
-                c1: math.uint3(x: 4, y: 5, z: 6),
-                c2: math.uint3(x: 7, y: 8, z: 9)
-            ),
+            math.uint3x3(math.uint3(1, 2, 3), math.uint3(4, 5, 6), math.uint3(7, 8, 9))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2018,13 +1863,9 @@ public class ArrayOfUInt4x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint4x3[]
+        var dataA = new[]
         {
-            math.uint4x3(
-                c0: math.uint4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.uint4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.uint4(x: 9, y: 10, z: 11, w: 12)
-            ),
+            math.uint4x3(math.uint4(1, 2, 3, 4), math.uint4(5, 6, 7, 8), math.uint4(9, 10, 11, 12))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2042,14 +1883,9 @@ public class ArrayOfUInt2x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint2x4[]
+        var dataA = new[]
         {
-            math.uint2x4(
-                c0: math.uint2(x: 1, y: 2),
-                c1: math.uint2(x: 3, y: 4),
-                c2: math.uint2(x: 5, y: 6),
-                c3: math.uint2(x: 7, y: 8)
-            ),
+            math.uint2x4(math.uint2(1, 2), math.uint2(3, 4), math.uint2(5, 6), math.uint2(7, 8))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2067,14 +1903,14 @@ public class ArrayOfUInt3x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint3x4[]
+        var dataA = new[]
         {
             math.uint3x4(
-                c0: math.uint3(x: 1, y: 2, z: 3),
-                c1: math.uint3(x: 4, y: 5, z: 6),
-                c2: math.uint3(x: 7, y: 8, z: 9),
-                c3: math.uint3(x: 10, y: 11, z: 12)
-            ),
+                math.uint3(1, 2, 3),
+                math.uint3(4, 5, 6),
+                math.uint3(7, 8, 9),
+                math.uint3(10, 11, 12)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2092,14 +1928,14 @@ public class ArrayOfUInt4x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new uint4x4[]
+        var dataA = new[]
         {
             math.uint4x4(
-                c0: math.uint4(x: 1, y: 2, z: 3, w: 4),
-                c1: math.uint4(x: 5, y: 6, z: 7, w: 8),
-                c2: math.uint4(x: 9, y: 10, z: 11, w: 12),
-                c3: math.uint4(x: 13, y: 14, z: 15, w: 16)
-            ),
+                math.uint4(1, 2, 3, 4),
+                math.uint4(5, 6, 7, 8),
+                math.uint4(9, 10, 11, 12),
+                math.uint4(13, 14, 15, 16)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2117,7 +1953,7 @@ public class ArrayOfBool2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool2[] { math.bool2(x: true, y: false), };
+        var dataA = new[] { math.bool2(true, false) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -2134,7 +1970,7 @@ public class ArrayOfBool3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool3[] { math.bool3(x: true, y: false, z: true), };
+        var dataA = new[] { math.bool3(true, false, true) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -2151,7 +1987,7 @@ public class ArrayOfBool4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool4[] { math.bool4(x: true, y: false, z: true, w: false), };
+        var dataA = new[] { math.bool4(true, false, true, false) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -2168,10 +2004,7 @@ public class ArrayOfBool2x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool2x2[]
-        {
-            math.bool2x2(c0: math.bool2(x: true, y: false), c1: math.bool2(x: true, y: false))
-        };
+        var dataA = new[] { math.bool2x2(math.bool2(true, false), math.bool2(true, false)) };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
 
@@ -2188,12 +2021,9 @@ public class ArrayOfBool3x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool3x2[]
+        var dataA = new[]
         {
-            math.bool3x2(
-                c0: math.bool3(x: true, y: false, z: true),
-                c1: math.bool3(x: false, y: true, z: false)
-            ),
+            math.bool3x2(math.bool3(true, false, true), math.bool3(false, true, false))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2211,12 +2041,9 @@ public class ArrayOfBool4x2sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool4x2[]
+        var dataA = new[]
         {
-            math.bool4x2(
-                c0: math.bool4(x: true, y: false, z: true, w: false),
-                c1: math.bool4(x: true, y: false, z: true, w: false)
-            ),
+            math.bool4x2(math.bool4(true, false, true, false), math.bool4(true, false, true, false))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2234,13 +2061,9 @@ public class ArrayOfBool2x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool2x3[]
+        var dataA = new[]
         {
-            math.bool2x3(
-                c0: math.bool2(x: true, y: false),
-                c1: math.bool2(x: true, y: false),
-                c2: math.bool2(x: true, y: false)
-            )
+            math.bool2x3(math.bool2(true, false), math.bool2(true, false), math.bool2(true, false))
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2258,13 +2081,13 @@ public class ArrayOfBool3x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool3x3[]
+        var dataA = new[]
         {
             math.bool3x3(
-                c0: math.bool3(x: true, y: false, z: true),
-                c1: math.bool3(x: false, y: true, z: false),
-                c2: math.bool3(x: true, y: false, z: true)
-            ),
+                math.bool3(true, false, true),
+                math.bool3(false, true, false),
+                math.bool3(true, false, true)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2282,13 +2105,13 @@ public class ArrayOfBool4x3sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool4x3[]
+        var dataA = new[]
         {
             math.bool4x3(
-                c0: math.bool4(x: true, y: false, z: true, w: false),
-                c1: math.bool4(x: true, y: false, z: true, w: false),
-                c2: math.bool4(x: true, y: false, z: true, w: false)
-            ),
+                math.bool4(true, false, true, false),
+                math.bool4(true, false, true, false),
+                math.bool4(true, false, true, false)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2306,14 +2129,14 @@ public class ArrayOfBool2x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool2x4[]
+        var dataA = new[]
         {
             math.bool2x4(
-                c0: math.bool2(x: true, y: false),
-                c1: math.bool2(x: true, y: false),
-                c2: math.bool2(x: true, y: false),
-                c3: math.bool2(x: true, y: false)
-            ),
+                math.bool2(true, false),
+                math.bool2(true, false),
+                math.bool2(true, false),
+                math.bool2(true, false)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2331,14 +2154,14 @@ public class ArrayOfBool3x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool3x4[]
+        var dataA = new[]
         {
             math.bool3x4(
-                c0: math.bool3(x: true, y: false, z: true),
-                c1: math.bool3(x: false, y: true, z: false),
-                c2: math.bool3(x: true, y: false, z: true),
-                c3: math.bool3(x: false, y: true, z: false)
-            ),
+                math.bool3(true, false, true),
+                math.bool3(false, true, false),
+                math.bool3(true, false, true),
+                math.bool3(false, true, false)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
@@ -2356,14 +2179,14 @@ public class ArrayOfBool4x4sJsonConverterTest
     [Fact]
     public void Test()
     {
-        var dataA = new bool4x4[]
+        var dataA = new[]
         {
             math.bool4x4(
-                c0: math.bool4(x: true, y: false, z: true, w: false),
-                c1: math.bool4(x: true, y: false, z: true, w: false),
-                c2: math.bool4(x: true, y: false, z: true, w: false),
-                c3: math.bool4(x: true, y: false, z: true, w: false)
-            ),
+                math.bool4(true, false, true, false),
+                math.bool4(true, false, true, false),
+                math.bool4(true, false, true, false),
+                math.bool4(true, false, true, false)
+            )
         };
         var json = JsonSerializer.Serialize(dataA, Profile.JsonSerializerOptions);
         Assert.False(string.IsNullOrEmpty(json));
