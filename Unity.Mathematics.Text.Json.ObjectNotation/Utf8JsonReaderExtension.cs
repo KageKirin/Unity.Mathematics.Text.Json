@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using Unity.Mathematics;
-
-#nullable enable
 
 namespace Unity.Mathematics.Text.Json.ObjectNotation;
 
