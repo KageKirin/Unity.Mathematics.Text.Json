@@ -5,7 +5,7 @@ namespace Unity.Mathematics.Text.Json;
 
 public static class Profile
 {
-    public static JsonSerializerOptions JsonSerializerOptions =
+    public static readonly JsonSerializerOptions JsonSerializerOptions =
         new()
         {
             MaxDepth = 1024,

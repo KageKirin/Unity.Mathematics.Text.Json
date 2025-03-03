@@ -4,7 +4,7 @@ namespace Unity.Mathematics.Text.Json;
 
 public static class Array
 {
-    public static JsonSerializerOptions JsonSerializerOptions =
+    public static readonly JsonSerializerOptions JsonSerializerOptions =
         new()
         {
             MaxDepth = 1024,

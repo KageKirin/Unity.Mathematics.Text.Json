@@ -4,5 +4,6 @@ namespace Unity.Mathematics.Text.Json;
 
 public static class Default
 {
-    public static JsonSerializerOptions JsonSerializerOptions => Array.JsonSerializerOptions;
+    public static readonly JsonSerializerOptions JsonSerializerOptions =
+        Array.JsonSerializerOptions;
 }
