@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Text.Json;
-using Unity.Mathematics;
-using Unity.Mathematics.Text.Json;
 using Xunit;
-
-#nullable enable
 
 namespace Unity.Mathematics.Text.Json.JsonObject.Tests;
 
