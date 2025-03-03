@@ -12,9 +12,7 @@ public class Int4JsonConverter : JsonConverter<int4>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new int4();
 
@@ -32,9 +30,7 @@ public class Int4JsonConverter : JsonConverter<int4>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

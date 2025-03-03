@@ -6,7 +6,7 @@ public class Uint4JsonObjectConverter : Uint4JsonConverter
 {
     public Uint4JsonObjectConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartObject //!< write as object
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartObject //!< write as object
         ) { }
 }

@@ -12,9 +12,7 @@ public class Bool3JsonConverter : JsonConverter<bool3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new bool3();
 
@@ -29,9 +27,7 @@ public class Bool3JsonConverter : JsonConverter<bool3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

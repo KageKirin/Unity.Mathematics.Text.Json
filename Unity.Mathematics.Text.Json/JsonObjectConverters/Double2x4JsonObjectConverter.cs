@@ -6,7 +6,7 @@ public class Double2x4JsonObjectConverter : Double2x4JsonConverter
 {
     public Double2x4JsonObjectConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartObject //!< write as object
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartObject //!< write as object
         ) { }
 }

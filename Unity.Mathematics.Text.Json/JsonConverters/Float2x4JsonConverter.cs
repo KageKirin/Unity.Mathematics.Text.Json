@@ -10,6 +10,7 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
         Type typeToConvert,
         JsonSerializerOptions options
     );
+
     public delegate void WriteFunc(
         Utf8JsonWriter writer,
         float2x4 value,
@@ -23,20 +24,19 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
         JsonTokenType readerTokenType = JsonTokenType.None,
         JsonTokenType writerTokenType = JsonTokenType.None
     )
-        : base()
     {
         readFunc = readerTokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray,
             JsonTokenType.StartObject => ReadAsObject,
-            _ => ReadCompatible,
+            _ => ReadCompatible
         };
 
         writeFunc = writerTokenType switch
         {
             JsonTokenType.StartArray => WriteAsArray,
             JsonTokenType.StartObject => WriteAsObject,
-            _ => WriteAsArray, //!< we need _some_ kind of default
+            _ => WriteAsArray //!< we need _some_ kind of default
         };
     }
 
@@ -44,13 +44,15 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options
-    ) => readFunc(ref reader, typeToConvert, options);
+    )
+    {
+        return readFunc(ref reader, typeToConvert, options);
+    }
 
-    public override void Write(
-        Utf8JsonWriter writer,
-        float2x4 value,
-        JsonSerializerOptions options
-    ) => writeFunc(writer, value, options);
+    public override void Write(Utf8JsonWriter writer, float2x4 value, JsonSerializerOptions options)
+    {
+        writeFunc(writer, value, options);
+    }
 
     public float2x4 ReadAsArray(
         ref Utf8JsonReader reader,
@@ -59,9 +61,7 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new float2x4();
 
@@ -91,9 +91,7 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
@@ -119,9 +117,7 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new float2x4();
 
@@ -151,9 +147,7 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
@@ -176,11 +170,13 @@ public class Float2x4JsonConverter : JsonConverter<float2x4>
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options
-    ) =>
-        reader.TokenType switch
+    )
+    {
+        return reader.TokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray(ref reader, typeToConvert, options),
             JsonTokenType.StartObject => ReadAsObject(ref reader, typeToConvert, options),
-            _ => throw new JsonException(),
+            _ => throw new JsonException()
         };
+    }
 }

@@ -10,6 +10,7 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
         Type typeToConvert,
         JsonSerializerOptions options
     );
+
     public delegate void WriteFunc(
         Utf8JsonWriter writer,
         bool2x2 value,
@@ -23,20 +24,19 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
         JsonTokenType readerTokenType = JsonTokenType.None,
         JsonTokenType writerTokenType = JsonTokenType.None
     )
-        : base()
     {
         readFunc = readerTokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray,
             JsonTokenType.StartObject => ReadAsObject,
-            _ => ReadCompatible,
+            _ => ReadCompatible
         };
 
         writeFunc = writerTokenType switch
         {
             JsonTokenType.StartArray => WriteAsArray,
             JsonTokenType.StartObject => WriteAsObject,
-            _ => WriteAsArray, //!< we need _some_ kind of default
+            _ => WriteAsArray //!< we need _some_ kind of default
         };
     }
 
@@ -44,13 +44,15 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options
-    ) => readFunc(ref reader, typeToConvert, options);
+    )
+    {
+        return readFunc(ref reader, typeToConvert, options);
+    }
 
-    public override void Write(
-        Utf8JsonWriter writer,
-        bool2x2 value,
-        JsonSerializerOptions options
-    ) => writeFunc(writer, value, options);
+    public override void Write(Utf8JsonWriter writer, bool2x2 value, JsonSerializerOptions options)
+    {
+        writeFunc(writer, value, options);
+    }
 
     public bool2x2 ReadAsArray(
         ref Utf8JsonReader reader,
@@ -59,9 +61,7 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new bool2x2();
 
@@ -79,9 +79,7 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
@@ -103,9 +101,7 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new bool2x2();
 
@@ -123,9 +119,7 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
@@ -144,11 +138,13 @@ public class Bool2x2JsonConverter : JsonConverter<bool2x2>
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options
-    ) =>
-        reader.TokenType switch
+    )
+    {
+        return reader.TokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray(ref reader, typeToConvert, options),
             JsonTokenType.StartObject => ReadAsObject(ref reader, typeToConvert, options),
-            _ => throw new JsonException(),
+            _ => throw new JsonException()
         };
+    }
 }

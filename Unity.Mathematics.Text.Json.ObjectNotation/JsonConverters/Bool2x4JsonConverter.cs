@@ -12,9 +12,7 @@ public class Bool2x4JsonConverter : JsonConverter<bool2x4>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new bool2x4();
 
@@ -44,9 +42,7 @@ public class Bool2x4JsonConverter : JsonConverter<bool2x4>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

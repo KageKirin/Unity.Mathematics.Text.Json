@@ -12,9 +12,7 @@ public class Float4JsonConverter : JsonConverter<float4>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new float4();
 
@@ -32,9 +30,7 @@ public class Float4JsonConverter : JsonConverter<float4>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

@@ -6,7 +6,7 @@ public class Uint3x3JsonArrayConverter : Uint3x3JsonConverter
 {
     public Uint3x3JsonArrayConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartArray //!< write as array
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartArray //!< write as array
         ) { }
 }

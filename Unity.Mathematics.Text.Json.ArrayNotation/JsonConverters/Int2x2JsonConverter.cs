@@ -12,9 +12,7 @@ public class Int2x2JsonConverter : JsonConverter<int2x2>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new int2x2();
 
@@ -32,9 +30,7 @@ public class Int2x2JsonConverter : JsonConverter<int2x2>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

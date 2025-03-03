@@ -12,9 +12,7 @@ public class Double3JsonConverter : JsonConverter<double3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new double3();
 
@@ -29,9 +27,7 @@ public class Double3JsonConverter : JsonConverter<double3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

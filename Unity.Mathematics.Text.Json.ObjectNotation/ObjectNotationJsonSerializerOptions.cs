@@ -72,7 +72,7 @@ public static class Profile
                 new Bool3x4JsonConverter(),
                 new Bool4x2JsonConverter(),
                 new Bool4x3JsonConverter(),
-                new Bool4x4JsonConverter(),
+                new Bool4x4JsonConverter()
             }
         };
 }

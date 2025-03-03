@@ -12,9 +12,7 @@ public class Float2x3JsonConverter : JsonConverter<float2x3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new float2x3();
 
@@ -38,9 +36,7 @@ public class Float2x3JsonConverter : JsonConverter<float2x3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

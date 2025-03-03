@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using Unity.Mathematics;
 using Unity.Mathematics.Text.Json.ArrayNotation;
 
 namespace Unity.Mathematics.Text.Json;
@@ -76,7 +72,7 @@ public static class Profile
                 new Bool3x4JsonConverter(),
                 new Bool4x2JsonConverter(),
                 new Bool4x3JsonConverter(),
-                new Bool4x4JsonConverter(),
+                new Bool4x4JsonConverter()
             }
         };
 }

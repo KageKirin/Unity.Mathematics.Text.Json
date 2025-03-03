@@ -6,7 +6,7 @@ public class Bool2JsonObjectConverter : Bool2JsonConverter
 {
     public Bool2JsonObjectConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartObject //!< write as object
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartObject //!< write as object
         ) { }
 }

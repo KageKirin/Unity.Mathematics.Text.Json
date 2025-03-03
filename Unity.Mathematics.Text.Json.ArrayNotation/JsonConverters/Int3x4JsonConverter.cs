@@ -12,9 +12,7 @@ public class Int3x4JsonConverter : JsonConverter<int3x4>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new int3x4();
 
@@ -56,9 +54,7 @@ public class Int3x4JsonConverter : JsonConverter<int3x4>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

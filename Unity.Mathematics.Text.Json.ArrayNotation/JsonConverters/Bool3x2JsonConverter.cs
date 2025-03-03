@@ -12,9 +12,7 @@ public class Bool3x2JsonConverter : JsonConverter<bool3x2>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new bool3x2();
 
@@ -38,9 +36,7 @@ public class Bool3x2JsonConverter : JsonConverter<bool3x2>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

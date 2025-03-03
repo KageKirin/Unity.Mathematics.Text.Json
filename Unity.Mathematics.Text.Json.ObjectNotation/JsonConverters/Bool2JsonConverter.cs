@@ -12,9 +12,7 @@ public class Bool2JsonConverter : JsonConverter<bool2>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new bool2();
 
@@ -26,9 +24,7 @@ public class Bool2JsonConverter : JsonConverter<bool2>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

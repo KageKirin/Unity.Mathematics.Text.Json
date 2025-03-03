@@ -6,7 +6,7 @@ public class Int2x2JsonArrayConverter : Int2x2JsonConverter
 {
     public Int2x2JsonArrayConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartArray //!< write as array
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartArray //!< write as array
         ) { }
 }

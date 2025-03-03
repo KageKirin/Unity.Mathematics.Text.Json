@@ -6,7 +6,7 @@ public class Int3x4JsonArrayConverter : Int3x4JsonConverter
 {
     public Int3x4JsonArrayConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartArray //!< write as array
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartArray //!< write as array
         ) { }
 }

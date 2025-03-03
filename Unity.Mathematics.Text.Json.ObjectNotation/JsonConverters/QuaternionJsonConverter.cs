@@ -12,9 +12,7 @@ public class QuaternionJsonConverter : JsonConverter<quaternion>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new quaternion();
 
@@ -32,9 +30,7 @@ public class QuaternionJsonConverter : JsonConverter<quaternion>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

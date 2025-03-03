@@ -10,6 +10,7 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
         Type typeToConvert,
         JsonSerializerOptions options
     );
+
     public delegate void WriteFunc(
         Utf8JsonWriter writer,
         double3x3 value,
@@ -23,20 +24,19 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
         JsonTokenType readerTokenType = JsonTokenType.None,
         JsonTokenType writerTokenType = JsonTokenType.None
     )
-        : base()
     {
         readFunc = readerTokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray,
             JsonTokenType.StartObject => ReadAsObject,
-            _ => ReadCompatible,
+            _ => ReadCompatible
         };
 
         writeFunc = writerTokenType switch
         {
             JsonTokenType.StartArray => WriteAsArray,
             JsonTokenType.StartObject => WriteAsObject,
-            _ => WriteAsArray, //!< we need _some_ kind of default
+            _ => WriteAsArray //!< we need _some_ kind of default
         };
     }
 
@@ -44,13 +44,19 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options
-    ) => readFunc(ref reader, typeToConvert, options);
+    )
+    {
+        return readFunc(ref reader, typeToConvert, options);
+    }
 
     public override void Write(
         Utf8JsonWriter writer,
         double3x3 value,
         JsonSerializerOptions options
-    ) => writeFunc(writer, value, options);
+    )
+    {
+        writeFunc(writer, value, options);
+    }
 
     public double3x3 ReadAsArray(
         ref Utf8JsonReader reader,
@@ -59,9 +65,7 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new double3x3();
 
@@ -94,9 +98,7 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
@@ -123,9 +125,7 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartObject)
-        {
             throw new JsonException();
-        }
 
         var value = new double3x3();
 
@@ -158,9 +158,7 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndObject)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
@@ -184,11 +182,13 @@ public class Double3x3JsonConverter : JsonConverter<double3x3>
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options
-    ) =>
-        reader.TokenType switch
+    )
+    {
+        return reader.TokenType switch
         {
             JsonTokenType.StartArray => ReadAsArray(ref reader, typeToConvert, options),
             JsonTokenType.StartObject => ReadAsObject(ref reader, typeToConvert, options),
-            _ => throw new JsonException(),
+            _ => throw new JsonException()
         };
+    }
 }

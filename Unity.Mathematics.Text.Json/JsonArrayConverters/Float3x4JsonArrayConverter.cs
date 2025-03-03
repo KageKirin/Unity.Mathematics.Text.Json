@@ -6,7 +6,7 @@ public class Float3x4JsonArrayConverter : Float3x4JsonConverter
 {
     public Float3x4JsonArrayConverter()
         : base(
-            readerTokenType: JsonTokenType.None, //!< compatible read
-            writerTokenType: JsonTokenType.StartArray //!< write as array
+            JsonTokenType.None, //!< compatible read
+            JsonTokenType.StartArray //!< write as array
         ) { }
 }

@@ -12,9 +12,7 @@ public class Double2JsonConverter : JsonConverter<double2>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new double2();
 
@@ -26,9 +24,7 @@ public class Double2JsonConverter : JsonConverter<double2>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }

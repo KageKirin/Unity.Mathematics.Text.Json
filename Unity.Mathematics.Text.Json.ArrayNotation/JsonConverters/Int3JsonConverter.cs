@@ -12,9 +12,7 @@ public class Int3JsonConverter : JsonConverter<int3>
     )
     {
         if (reader.TokenType != JsonTokenType.StartArray)
-        {
             throw new JsonException();
-        }
 
         var value = new int3();
 
@@ -29,9 +27,7 @@ public class Int3JsonConverter : JsonConverter<int3>
 
         reader.Read();
         if (reader.TokenType != JsonTokenType.EndArray)
-        {
             throw new JsonException();
-        }
 
         return value;
     }
